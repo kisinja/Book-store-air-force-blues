@@ -6,11 +6,12 @@ import BookDetails from './pages/BookDetails';
 import AboutUs from './pages/AboutUs';
 import ContactPage from './pages/ContactPage';
 import Navbar from './components/Navbar';
+//import Footer from './components/Footer';
 import PageNotFound from './components/PageNotFound';
 
 const App = () => {
   return (
-    <div className='px-6 md:px-12 lg:px-24'>
+    <div className='px-6 md:px-12 lg:px-24 bg-pattern min-h-screen'>
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />

@@ -1,3 +1,4 @@
+// Mock data for a bookstore application
 export const books = [
     {
         id: 1,
@@ -193,7 +194,7 @@ export const storeInfo = {
     }
 };
 
-export const featuredBooks = [1, 2, 5, 8]; // IDs of featured books
+export const featuredBooks = [1, 2, 5]; // IDs of featured books
 
 export const testimonials = [
     {
