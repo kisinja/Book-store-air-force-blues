@@ -14,7 +14,8 @@ export const books = [
         publishedYear: 1925,
         isbn: "9780743273565",
         language: "English",
-        publisher: "Scribner"
+        publisher: "Scribner",
+        isBookmarked: false,
     },
     {
         id: 2,
@@ -30,7 +31,8 @@ export const books = [
         publishedYear: 1960,
         isbn: "9780061120084",
         language: "English",
-        publisher: "J. B. Lippincott & Co."
+        publisher: "J. B. Lippincott & Co.",
+        isBookmarked: true,
     },
     {
         id: 3,
@@ -46,7 +48,8 @@ export const books = [
         publishedYear: 1949,
         isbn: "9780451524935",
         language: "English",
-        publisher: "Secker & Warburg"
+        publisher: "Secker & Warburg",
+        isBookmarked: false,
     },
     {
         id: 4,
@@ -62,7 +65,8 @@ export const books = [
         publishedYear: 1937,
         isbn: "9780547928227",
         language: "English",
-        publisher: "Allen & Unwin"
+        publisher: "Allen & Unwin",
+        isBookmarked: false,
     },
     {
         id: 5,
@@ -78,7 +82,8 @@ export const books = [
         publishedYear: 1997,
         isbn: "9780747532699",
         language: "English",
-        publisher: "Bloomsbury"
+        publisher: "Bloomsbury",
+        isBookmarked: false,
     },
     {
         id: 6,
@@ -94,7 +99,8 @@ export const books = [
         publishedYear: 1951,
         isbn: "9780316769488",
         language: "English",
-        publisher: "Little, Brown and Company"
+        publisher: "Little, Brown and Company",
+        isBookmarked: true,
     },
     {
         id: 7,
@@ -110,7 +116,8 @@ export const books = [
         publishedYear: 1813,
         isbn: "9780141439518",
         language: "English",
-        publisher: "T. Egerton, Whitehall"
+        publisher: "T. Egerton, Whitehall",
+        isBookmarked: false,
     },
     {
         id: 8,
@@ -126,7 +133,8 @@ export const books = [
         publishedYear: 1954,
         isbn: "9780544003415",
         language: "English",
-        publisher: "Allen & Unwin"
+        publisher: "Allen & Unwin",
+        isBookmarked: false,
     },
     {
         id: 9,
@@ -142,7 +150,8 @@ export const books = [
         publishedYear: 2003,
         isbn: "9780307474278",
         language: "English",
-        publisher: "Doubleday"
+        publisher: "Doubleday",
+        isBookmarked: false,
     },
     {
         id: 10,
@@ -158,7 +167,25 @@ export const books = [
         publishedYear: 1965,
         isbn: "9780441172719",
         language: "English",
-        publisher: "Chilton Books"
+        publisher: "Chilton Books",
+        isBookmarked: false,
+    },
+    {
+        id: 11,
+        title: "My Life in Prison",
+        author: "John Kiriamiti",
+        price: 12.99,
+        category: "Autobiography",
+        description: "A gripping autobiographical account of John Kiriamiti's experiences in Kenyan prisons. The book details his transformation from a notorious criminal to a reformed man, offering raw insights into the harsh realities of prison life and the criminal underworld in Kenya during the 1970s and 1980s.",
+        coverImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB6AY4rvEIRIztiIEb5jehkSiargyC3h_8Ag&s",
+        rating: 4.7,
+        stock: 15,
+        pages: 256,
+        publishedYear: 1984,
+        isbn: "978-9966498529",
+        language: "English",
+        publisher: "East African Educational Publishers",
+        isBookmarked: true,
     }
 ];
 
