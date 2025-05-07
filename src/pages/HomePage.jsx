@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaArrowRight } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { books, featuredBooks } from '../assets';
@@ -6,13 +6,17 @@ import BookCard from '../components/BookCard';
 
 const HomePage = () => {
 
-    const featuredCollection = books.filter(book => featuredBooks.includes(book.id));
-    console.log(featuredCollection);
+    const [featuredCollection, setFeaturedCollection] = React.useState([]);
+
+    useEffect(() => {
+        const featured = books.filter(book => featuredBooks.includes(book.id));
+        setFeaturedCollection(featured);
+    }, []);
 
     return (
         <>
             {/* Hero Section */}
-            <section className=' relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20'>
+            <section className=' relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20 rounded-2xl'>
                 <div className="container mx-auto px-6 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 capitalize">
                         Discover your next favorite book
@@ -38,10 +42,34 @@ const HomePage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
                     {
-                        featuredCollection && featuredCollection.map(book => (
-                            <BookCard key={book.id} book={book} />
+                        featuredCollection && featuredCollection.slice(0, 3).map(book => (
+                            <BookCard key={book.id} book={book} setFeaturedCollection={setFeaturedCollection} />
                         ))
                     }
+                </div>
+            </section>
+
+            {/* Call to Action */}
+            <section className="py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white h-max rounded-2xl">
+                <div className="container mx-auto px-6 text-center">
+                    <h2 className="text-3xl font-bold mb-6">Ready to Start Reading?</h2>
+                    <p className="text-xl mb-8 max-w-2xl mx-auto">
+                        Join our community of book lovers today and get 10% off your first purchase.
+                    </p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Link
+                            to="/book-catalog"
+                            className="bg-white text-indigo-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+                        >
+                            Shop Now
+                        </Link>
+                        <Link
+                            to="/contact"
+                            className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition-colors"
+                        >
+                            Contact Us
+                        </Link>
+                    </div>
                 </div>
             </section>
         </>

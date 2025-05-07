@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
 import { FaBookmark, FaRegBookmark, FaStar } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { books } from '../assets';
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, setFeaturedCollection }) => {
 
-    const [isBookmarked, setIsBookmarked] = useState(false);
+    const navigate = useNavigate();
+
+    const handleBookmarkToggle = (bookId) => {
+        const updatedBooks = books.map((b) => {
+            if (b.id === bookId) {
+                return { ...b, isBookmarked: !b.isBookmarked };
+            }
+            return b;
+        });
+        setFeaturedCollection(updatedBooks);
+    };
+
+    const isBookmarked = book?.isBookmarked;
 
     return (
         <div className='bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group'>
@@ -17,8 +29,9 @@ const BookCard = ({ book }) => {
                 />
 
                 <button
-                    onClick={() => setIsBookmarked(!isBookmarked)}
-                    className="absolute top-3 right-3 p-2 bg-white/80 rounded-full backdrop-blur-sm hover:bg-white transition-colors"
+                    onClick={() => handleBookmarkToggle(book.id)}
+                    className="absolute top-3 right-3 p-2 bg-white/80 rounded-full backdrop-blur-sm hover:bg-white transition-colors cursor-pointer"
+                    title="Bookmark this book"
                 >
                     {
                         isBookmarked ? (
@@ -53,9 +66,9 @@ const BookCard = ({ book }) => {
 
                 {/* Action buttons */}
                 <div className="mt-4 flex space-x-2 justify-center items-center">
-                    <Link to={`/books/${book.id}`} className=' bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded-lg transition-colors'>
+                    <button onClick={() => { navigate(`/books/${book.id}`) }} className=' bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded-lg transition-colors'>
                         View Details
-                    </Link>
+                    </button>
 
                     <button className="bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-3 rounded-lg transition-colors">
                         Add to Cart
